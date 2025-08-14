@@ -1,0 +1,27 @@
+[server]
+maxUploadSize = 3000
+maxMessageSize= 500
+
+#optimise for large datasets
+enableCORS = false
+enableXsrfProtection = false
+
+address = "0.0.0.0"
+port = 8501
+headless = true
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+
+primaryColor= "#ffffffff"
+backgroundColor="#aae793c7"
+secondaryBackgroundColor= "#d7c2a5df"
+textColor = "#262730"
+
+
+
+
+
