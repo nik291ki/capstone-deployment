@@ -921,8 +921,6 @@ def page_rules():
                     # Remove rows where cluster mapping failed
                     tmp_with_clusters = tmp.dropna(subset=['cluster'])
                     
-                    st.write(f"🔍 Debug: Transactions with clusters: {len(tmp_with_clusters)}")
-                    
                     if len(tmp_with_clusters) > 0:
                         segments = sorted(map(str, pd.Series(tmp_with_clusters['cluster']).dropna().unique()))
                         if segments:
@@ -954,21 +952,6 @@ def page_rules():
             
             3. **Quick solution**: Use "All customers" analysis for now
             """)
-            
-            # Show what's available
-            with st.expander("🔍 Debug: Available Data"):
-                st.write(f"Current dataset shape: {df.shape}")
-                st.write(f"Available columns: {df.columns.tolist()}")
-                st.write(f"User ID column in data: {'user_id' in df.columns}")
-                if 'user_id' in df.columns:
-                    st.write(f"Sample user IDs: {df['user_id'].head().tolist()}")
-                st.write(f"Session state cluster_map exists: {st.session_state.cluster_map is not None}")
-                st.write(f"Session state cluster_user_col: {st.session_state.cluster_user_col}")
-                if st.session_state.cluster_map is not None:
-                    sample_cluster_keys = list(st.session_state.cluster_map.keys())[:5]
-                    st.write(f"Sample cluster map keys: {sample_cluster_keys}")
-                if 'cluster' in df.columns:
-                    st.write(f"Cluster column values: {df['cluster'].value_counts()}")
             
             return  # Exit early if no segments available
 
