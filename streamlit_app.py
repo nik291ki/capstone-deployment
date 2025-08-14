@@ -428,6 +428,16 @@ def page_upload():
         
 
 def page_segmentation():
+
+    # Add this at the top of page_segmentation(), before the "Run Segmentation" button
+    if st.button("🔄 Reset Segmentation", help="Clear previous results and start fresh"):
+    # Clear all segmentation-related session state
+        for key in ['clusters_df', 'cluster_map', 'cluster_user_col']:
+            if key in st.session_state:
+                del st.session_state[key]
+        st.success("✅ Segmentation reset! You can now run a fresh analysis.")
+        st.experimental_rerun()
+        
     st.header("🧩 Advanced Customer Segmentation")
     st.write("Hybrid approach: Traditional clustering with automatic fallback to continuum segmentation")
 
