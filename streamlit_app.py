@@ -183,8 +183,8 @@ with st.sidebar:
             "Home",
             "Data Upload",
             "Customer Segmentation",
-            "Association Rules",
-            "Freshness Detection"
+            "Association Rules"
+            #"Freshness Detection"
         ],
     )
     st.markdown("---")
